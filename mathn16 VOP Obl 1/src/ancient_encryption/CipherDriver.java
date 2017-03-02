@@ -5,6 +5,11 @@ package ancient_encryption;
  * @author erso 
  *  Udleveret driver klasse til opgave 2, VOP eksamen 10 juni 2016
  */
+
+import mathn16.vop.obl.pkg1.AtbashCipher;
+import mathn16.vop.obl.pkg1.CeasarCipher;
+
+
 public class CipherDriver {
 
     /**
@@ -17,16 +22,16 @@ public class CipherDriver {
         System.out.println("Original: \n" + message);
 
         // Fjern ud-kommenteringen, når AtbashCipher skal testes
-//        cipher = new AtbashCipher();
-//        String enc = cipher.encrypt(message);
-//        System.out.println("Atbash: \n" + enc);
-//        System.out.println(cipher.decrypt(enc));
+        cipher = new AtbashCipher();
+        String enc = cipher.encrypt(message);
+        System.out.println("Atbash: \n" + enc);
+        System.out.println(cipher.decrypt(enc));
 
         // Fjern ud-kommenteringen, når CeasarCipher skal testes
-//        cipher = new CeasarCipher(13);
-//        enc = cipher.encrypt(message);
-//        System.out.println("Ceasar 13: \n" + enc);
-//        System.out.println(cipher.decrypt(enc));
+        cipher = new CeasarCipher(13);
+        enc = cipher.encrypt(message);
+        System.out.println("Ceasar 13: \n" + enc);
+        System.out.println(cipher.decrypt(enc));
 
     }
 

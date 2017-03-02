@@ -12,10 +12,22 @@ import ancient_encryption.CipherInterface;
  * @author Mathias
  */
 public class AtbashCipher extends AbstractCipher {
-
+    
+    
     @Override
     public String encrypt(String original) {
-        int k = 0;
+        String encryptedMessage = "";
+        for(int i = 0; i < original.length()-1; i++){                       //Iterere hver char i strengen
+            System.out.println(original.charAt(i));
+            int j = findCharIndex(original.charAt(i));                      //Tager char ved det aktuelle index.
+            //System.out.println(j);
+            if(j > 0 && j > CipherInterface.ALPHABETH.length/2){
+                encryptedMessage = encryptedMessage + CipherInterface.ALPHABETH[CipherInterface.ALPHABETH.length - j];
+            }else if(j > 0 && j < CipherInterface.ALPHABETH.length/2){
+                encryptedMessage = encryptedMessage + CipherInterface.ALPHABETH[j - CipherInterface.ALPHABETH.length];
+            }
+        }return encryptedMessage;
+        /*int k = 0;
         String encrypted = "";
         for(int i = 0; i<original.length()-1; i++){                         //Itererer hver char i stringen
             for(int j = 0; j<CipherInterface.ALPHABETH.length-1; j++){      //Itererer alfabetet
@@ -30,12 +42,14 @@ public class AtbashCipher extends AbstractCipher {
                 }
             }encrypted += (char)k;
         }
-        return encrypted;
+        return encrypted;*/
     }
 
     @Override
     public String decrypt(String encrypted) {
+        String decryptedMessage = encrypt(encrypted);
         
+        return decryptedMessage;
     }
     
 }

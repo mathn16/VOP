@@ -12,7 +12,7 @@ import ancient_encryption.CipherInterface;
 public abstract class AbstractCipher implements CipherInterface {
     
     
-    private int findCharIndex(char ch){
+    protected int findCharIndex(char ch){
         int chIndex = 0;
         for(int i = 0; i<CipherInterface.ALPHABETH.length; i++){
             if(ch == CipherInterface.ALPHABETH[i]){
