@@ -26,10 +26,12 @@ public class CeasarCipher extends AbstractCipher{
         String encryptedMessage = "";
         for(int i = 0; i < original.length()-1; i++){
             int j = findCharIndex(original.charAt(i));            
-            if(j > 0 && j + rotFactor < CipherInterface.ALPHABETH.length-1){    //Prøv uden check om de bliver mindre end
+            if(j > 0 && j + rotFactor < CipherInterface.ALPHABETH.length){    //Prøv uden check om de bliver mindre end
                 encryptedMessage += CipherInterface.ALPHABETH[j + rotFactor];
-            }else if(j > 0 && j + rotFactor > CipherInterface.ALPHABETH.length-1) {
-                encryptedMessage += CipherInterface.ALPHABETH[j+rotFactor - CipherInterface.ALPHABETH.length-1];
+            }else if(j > 0 && j + rotFactor > CipherInterface.ALPHABETH.length) {
+                encryptedMessage += CipherInterface.ALPHABETH[CipherInterface.ALPHABETH.length - j+rotFactor];
+            }else{
+                encryptedMessage += original.charAt(i);
             }
         }return encryptedMessage;
     }

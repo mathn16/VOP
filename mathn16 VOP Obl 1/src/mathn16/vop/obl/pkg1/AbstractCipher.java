@@ -17,9 +17,9 @@ public abstract class AbstractCipher implements CipherInterface {
         for(int i = 0; i<CipherInterface.ALPHABETH.length; i++){
             if(ch == CipherInterface.ALPHABETH[i]){
                 chIndex = i;
-            }else if(i == CipherInterface.ALPHABETH.length-1 && ch != CipherInterface.ALPHABETH[i]){
+            }else if(i == CipherInterface.ALPHABETH.length){
                 chIndex = -1;
-            }   
+            }
         }return chIndex;
     }
     

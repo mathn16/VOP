@@ -17,14 +17,17 @@ public class AtbashCipher extends AbstractCipher {
     @Override
     public String encrypt(String original) {
         String encryptedMessage = "";
-        for(int i = 0; i < original.length()-1; i++){                       //Iterere hver char i strengen
-            System.out.println(original.charAt(i));
+        for(int i = 0; i < original.length(); i++){                         //Iterere hver char i strengen
+            //System.out.println(encryptedMessage);
+            //System.out.println(original.charAt(i));
             int j = findCharIndex(original.charAt(i));                      //Tager char ved det aktuelle index.
             //System.out.println(j);
-            if(j > 0 && j > CipherInterface.ALPHABETH.length/2){
-                encryptedMessage = encryptedMessage + CipherInterface.ALPHABETH[CipherInterface.ALPHABETH.length - j];
+            if(j > CipherInterface.ALPHABETH.length/2){
+                encryptedMessage += CipherInterface.ALPHABETH[(j+CipherInterface.ALPHABETH.length/2)-CipherInterface.ALPHABETH.length];
             }else if(j > 0 && j < CipherInterface.ALPHABETH.length/2){
-                encryptedMessage = encryptedMessage + CipherInterface.ALPHABETH[j - CipherInterface.ALPHABETH.length];
+                encryptedMessage += CipherInterface.ALPHABETH[CipherInterface.ALPHABETH.length - j -1];
+            }else{
+                encryptedMessage += original.charAt(i);
             }
         }return encryptedMessage;
         /*int k = 0;
