@@ -18,19 +18,21 @@ public class CeasarCipher extends AbstractCipher{
     public CeasarCipher(int _rotFactor){
         if(_rotFactor >= 0 || _rotFactor < CipherInterface.ALPHABETH.length){
             this.rotFactor = _rotFactor;
+            //System.out.println("rot" + rotFactor);
         }
     }
 
     @Override
     public String encrypt(String original) {
         String encryptedMessage = "";
-        for(int i = 0; i < original.length()-1; i++){
-            int j = findCharIndex(original.charAt(i));            
-            if(j > 0 && j + rotFactor < CipherInterface.ALPHABETH.length){    //Prøv uden check om de bliver mindre end
+        for(int i = 0; i < original.length(); i++){
+            int j = findCharIndex(original.charAt(i));
+            //System.out.println(j);          
+            if(j >= 0 && j + rotFactor < CipherInterface.ALPHABETH.length){    //Prøv uden check om de bliver mindre end
                 encryptedMessage += CipherInterface.ALPHABETH[j + rotFactor];
-            }else if(j > 0 && j + rotFactor > CipherInterface.ALPHABETH.length) {
-                encryptedMessage += CipherInterface.ALPHABETH[CipherInterface.ALPHABETH.length - j+rotFactor];
-            }else{
+            }else if(j >= 0 && j + rotFactor > CipherInterface.ALPHABETH.length) {
+                encryptedMessage += CipherInterface.ALPHABETH[j+rotFactor - CipherInterface.ALPHABETH.length];
+            }else if(j == -1){
                 encryptedMessage += original.charAt(i);
             }
         }return encryptedMessage;
@@ -39,12 +41,12 @@ public class CeasarCipher extends AbstractCipher{
     @Override
     public String decrypt(String encrypted) {
         String decryptedMessage = "";
-        for(int i = 0; i < encrypted.length()-1; i++){
+        for(int i = 0; i < encrypted.length(); i++){
             int j = findCharIndex(encrypted.charAt(i));            
-            if(j > 0 && j - rotFactor > CipherInterface.ALPHABETH.length-1){    //prøv uden første check om den er større end
+            if(j > 0 && j - rotFactor > CipherInterface.ALPHABETH.length){    //prøv uden første check om den er større end
                 decryptedMessage += CipherInterface.ALPHABETH[j - rotFactor];
             }else if(j > 0 && j - rotFactor < 0) {
-                decryptedMessage += CipherInterface.ALPHABETH[j-rotFactor + CipherInterface.ALPHABETH.length-1];
+                decryptedMessage += CipherInterface.ALPHABETH[j-rotFactor + CipherInterface.ALPHABETH.length];
             }
         }return decryptedMessage;
 

@@ -13,12 +13,10 @@ public abstract class AbstractCipher implements CipherInterface {
     
     
     protected int findCharIndex(char ch){
-        int chIndex = 0;
-        for(int i = 0; i<CipherInterface.ALPHABETH.length; i++){
+        int chIndex = -1;
+        for(int i = 0; i < CipherInterface.ALPHABETH.length; i++){
             if(ch == CipherInterface.ALPHABETH[i]){
                 chIndex = i;
-            }else if(i == CipherInterface.ALPHABETH.length){
-                chIndex = -1;
             }
         }return chIndex;
     }

@@ -21,17 +21,14 @@ public class AtbashCipher extends AbstractCipher {
             //System.out.println(encryptedMessage);
             //System.out.println(original.charAt(i));
             int j = findCharIndex(original.charAt(i));                      //Tager char ved det aktuelle index.
-            //System.out.println(j);
+            System.out.println(j);
             if(j > CipherInterface.ALPHABETH.length/2){
                 int l = 0;
                 for(int k = CipherInterface.ALPHABETH.length/2; k < j; k++){
                     l++;
-                    /*System.out.println(l + "l");
-                    System.out.println(k + "k");
-                    System.out.println(j + "j");*/
                 }
                 encryptedMessage += CipherInterface.ALPHABETH[CipherInterface.ALPHABETH.length/2-l -1];
-            }else if(j > 0 && j <= CipherInterface.ALPHABETH.length/2){
+            }else if(j >= 0 && j <= CipherInterface.ALPHABETH.length/2){
                 encryptedMessage += CipherInterface.ALPHABETH[CipherInterface.ALPHABETH.length - j -1];
             }else{
                 encryptedMessage += original.charAt(i);
