@@ -28,7 +28,7 @@ public class CeasarCipher extends AbstractCipher{
         for(int i = 0; i < original.length(); i++){
             int j = findCharIndex(original.charAt(i));
             //System.out.println(j);          
-            if(j >= 0 && j + rotFactor < CipherInterface.ALPHABETH.length){    //Prøv uden check om de bliver mindre end
+            if(j >= 0 && j + rotFactor < CipherInterface.ALPHABETH.length){
                 encryptedMessage += CipherInterface.ALPHABETH[j + rotFactor];
             }else if(j >= 0 && j + rotFactor > CipherInterface.ALPHABETH.length) {
                 encryptedMessage += CipherInterface.ALPHABETH[j+rotFactor - CipherInterface.ALPHABETH.length];
@@ -42,11 +42,13 @@ public class CeasarCipher extends AbstractCipher{
     public String decrypt(String encrypted) {
         String decryptedMessage = "";
         for(int i = 0; i < encrypted.length(); i++){
-            int j = findCharIndex(encrypted.charAt(i));            
-            if(j > 0 && j - rotFactor > CipherInterface.ALPHABETH.length){    //prøv uden første check om den er større end
+            int j = findCharIndex(encrypted.charAt(i));
+            if(j >= 0 && j - rotFactor >= 0){
                 decryptedMessage += CipherInterface.ALPHABETH[j - rotFactor];
-            }else if(j > 0 && j - rotFactor < 0) {
+            }else if(j >= 0 && j - rotFactor < 0) {
                 decryptedMessage += CipherInterface.ALPHABETH[j-rotFactor + CipherInterface.ALPHABETH.length];
+            }else if(j == -1){
+                decryptedMessage += encrypted.charAt(i);
             }
         }return decryptedMessage;
 
