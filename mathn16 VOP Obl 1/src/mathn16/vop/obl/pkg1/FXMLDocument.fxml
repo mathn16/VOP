@@ -26,11 +26,7 @@
                               <ToggleGroup fx:id="encryptionButtons" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton fx:id="ceasarBtn" layoutX="373.0" layoutY="103.0" mnemonicParsing="false" text="Ceasar">
-                           <toggleGroup>
-                              <ToggleGroup fx:id="EncryptionButtons" />
-                           </toggleGroup>
-                        </RadioButton>
+                        <RadioButton fx:id="ceasarBtn" layoutX="373.0" layoutY="103.0" mnemonicParsing="false" text="Ceasar" toggleGroup="$encryptionButtons" />
                         <Spinner fx:id="ceasarSpinner" layoutX="469.0" layoutY="99.0" prefHeight="25.0" prefWidth="81.0" />
                         <Button fx:id="encryptButton" layoutX="76.0" layoutY="186.0" mnemonicParsing="false" onAction="#encryptMessage" text="Kryptér" />
                         <Button fx:id="decryptButton" layoutX="76.0" layoutY="280.0" mnemonicParsing="false" onAction="#decryptMessage" text="Dekryptér" />
