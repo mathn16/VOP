@@ -17,7 +17,7 @@
         <tabs>
           <Tab text="Encryptions">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="640.0">
+              <AnchorPane minHeight="400.0" minWidth="640.0" prefHeight="400.0" prefWidth="640.0">
                      <children>
                         <Label fx:id="messageFieldLabel" layoutX="13.0" layoutY="41.0" prefHeight="17.0" prefWidth="113.0" text="Message to encrypt:" />
                         <TextField fx:id="messageField" layoutX="151.0" layoutY="37.0" prefHeight="25.0" prefWidth="388.0" />
