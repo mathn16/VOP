@@ -5,58 +5,28 @@
  */
 package mathn16.vop.obl.pkg1;
 
+import ancient_encryption.CipherInterface;
 import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TabPane;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
  *
- * @author Mathias
+ * @author Thisen
  */
 public class Mathn16VOPObl1 extends Application {
     
     @Override
-    public void start(Stage primaryStage) {
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
-        RadioButton rdbAtbash = new RadioButton();
-        RadioButton rdbCeasar = new RadioButton();
-        Label lblAtbash = new Label("Atbash");
-        Label lblCeasar = new Label("Ceasar");
-        Label lblwrittenMessage = new Label("Write your message for encryption here:");
-        TextField writtenMessage = new TextField();
+        Scene scene = new Scene(root);
         
-        rdbCeasar.setLayoutX(40);
-        rdbCeasar.setLayoutY(100);
-        rdbAtbash.setLayoutX(300);
-        rdbAtbash.setLayoutY(100);
-        
-        lblwrittenMessage.setLayoutX(40);
-        lblwrittenMessage.setLayoutY(10);
-        lblAtbash.setLayoutX(60);
-        lblAtbash.setLayoutY(100);
-        lblCeasar.setLayoutX(320);
-        lblCeasar.setLayoutY(100);
-        
-        writtenMessage.setPrefSize(400, 30);
-        writtenMessage.setLayoutX(40);
-        writtenMessage.setLayoutY(30);
-                
-        TabPane tabPane = new TabPane();
-        AnchorPane root = new AnchorPane();
-        root.prefWidth(640);
-        root.prefHeight(400);
-        root.getChildren().addAll(tabPane, rdbAtbash, rdbCeasar, lblAtbash, lblCeasar, writtenMessage, lblwrittenMessage);
-        
-        Scene scene = new Scene(root, 640, 400);
-        
-        primaryStage.setTitle("Cipher GUI");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setScene(scene);
+        stage.show();
     }
 
     /**
@@ -64,6 +34,18 @@ public class Mathn16VOPObl1 extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
+
+    }
+    public String atbashEncryptMode(String message){
+        AtbashCipher cipher = new AtbashCipher();
+        String enc = cipher.encrypt(message);
+        return enc;
+    }
+    public String ceasarEncryptMode(int n, String message){
+        CeasarCipher cipher = new CeasarCipher(n);
+        String enc = cipher.encrypt(message);
+        return enc;
     }
     
 }
