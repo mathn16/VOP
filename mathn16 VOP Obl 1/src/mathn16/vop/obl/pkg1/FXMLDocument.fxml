@@ -15,23 +15,27 @@
    <children>
       <TabPane prefHeight="400.0" prefWidth="640.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <tabs>
-          <Tab text="Untitled Tab 1">
+          <Tab text="Encryptions">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="77.0" layoutY="41.0" prefHeight="17.0" prefWidth="49.0" text="Besked" />
-                        <TextField layoutX="151.0" layoutY="37.0" prefHeight="25.0" prefWidth="388.0" />
-                        <RadioButton layoutX="151.0" layoutY="103.0" mnemonicParsing="false" text="Atbash">
+                        <Label fx:id="messageFieldLabel" layoutX="13.0" layoutY="41.0" prefHeight="17.0" prefWidth="113.0" text="Message to encrypt:" />
+                        <TextField fx:id="messageField" layoutX="151.0" layoutY="37.0" prefHeight="25.0" prefWidth="388.0" />
+                        <RadioButton fx:id="atbashBtn" layoutX="151.0" layoutY="103.0" mnemonicParsing="false" text="Atbash">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="encryptionButtons" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="ceasarBtn" layoutX="373.0" layoutY="103.0" mnemonicParsing="false" text="Ceasar">
                            <toggleGroup>
                               <ToggleGroup fx:id="EncryptionButtons" />
                            </toggleGroup>
                         </RadioButton>
-                        <RadioButton layoutX="373.0" layoutY="103.0" mnemonicParsing="false" text="Ceasar" toggleGroup="$EncryptionButtons" />
                         <Spinner fx:id="ceasarSpinner" layoutX="469.0" layoutY="99.0" prefHeight="25.0" prefWidth="81.0" />
-                        <Button layoutX="76.0" layoutY="186.0" mnemonicParsing="false" text="Kryptér" />
-                        <Button layoutX="76.0" layoutY="280.0" mnemonicParsing="false" text="Dekryptér" />
-                        <TextField layoutX="151.0" layoutY="186.0" prefHeight="25.0" prefWidth="388.0" />
-                        <TextField layoutX="151.0" layoutY="280.0" prefHeight="25.0" prefWidth="388.0" />
+                        <Button fx:id="encryptButton" layoutX="76.0" layoutY="186.0" mnemonicParsing="false" onAction="#encryptMessage" text="Kryptér" />
+                        <Button fx:id="decryptButton" layoutX="76.0" layoutY="280.0" mnemonicParsing="false" onAction="#decryptMessage" text="Dekryptér" />
+                        <TextField fx:id="encryptedField" editable="false" layoutX="151.0" layoutY="186.0" prefHeight="25.0" prefWidth="388.0" />
+                        <TextField fx:id="decryptedField" layoutX="151.0" layoutY="280.0" prefHeight="25.0" prefWidth="388.0" />
                      </children>
                   </AnchorPane>
             </content>

@@ -39,7 +39,7 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton atbashBtn;
 
     @FXML
-    private ToggleGroup EncryptionButtons;
+    private ToggleGroup encryptionButtons;
 
     @FXML
     private RadioButton ceasarBtn;
