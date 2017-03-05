@@ -51,8 +51,5 @@ public class CeasarCipher extends AbstractCipher{
                 decryptedMessage += encrypted.charAt(i);
             }
         }return decryptedMessage;
-
-        
     }
-    
 }
