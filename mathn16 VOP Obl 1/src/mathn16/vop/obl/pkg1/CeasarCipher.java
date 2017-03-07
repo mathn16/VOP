@@ -16,9 +16,8 @@ public class CeasarCipher extends AbstractCipher{
     int rotFactor;
     
     public CeasarCipher(int _rotFactor){
-        if(_rotFactor >= 0 || _rotFactor < CipherInterface.ALPHABETH.length){
+        if(_rotFactor >= 0 || _rotFactor < ALPHABETH.length){
             this.rotFactor = _rotFactor;
-            //System.out.println("rot" + rotFactor);
         }
     }
 
@@ -26,12 +25,12 @@ public class CeasarCipher extends AbstractCipher{
     public String encrypt(String original) {
         String encryptedMessage = "";
         for(int i = 0; i < original.length(); i++){
-            int j = findCharIndex(original.charAt(i));
-            if(j >= 0 && j + rotFactor < ALPHABETH.length){
-                encryptedMessage += ALPHABETH[j + rotFactor];
-            }else if(j >= 0 && j + rotFactor > ALPHABETH.length) {
-                encryptedMessage += ALPHABETH[j+rotFactor - ALPHABETH.length];
-            }else if(j == -1){
+            int index = findCharIndex(original.charAt(i));
+            if(index >= 0 && index + rotFactor < ALPHABETH.length){
+                encryptedMessage += ALPHABETH[index + rotFactor];
+            }else if(index >= 0 && index + rotFactor > ALPHABETH.length) {
+                encryptedMessage += ALPHABETH[index+rotFactor - ALPHABETH.length];
+            }else if(index == -1){
                 encryptedMessage += original.charAt(i);
             }
         }return encryptedMessage;
@@ -41,12 +40,12 @@ public class CeasarCipher extends AbstractCipher{
     public String decrypt(String encrypted) {
         String decryptedMessage = "";
         for(int i = 0; i < encrypted.length(); i++){
-            int j = findCharIndex(encrypted.charAt(i));
-            if(j >= 0 && j - rotFactor >= 0){
-                decryptedMessage += ALPHABETH[j - rotFactor];
-            }else if(j >= 0 && j - rotFactor < 0) {
-                decryptedMessage += ALPHABETH[j-rotFactor + ALPHABETH.length];
-            }else if(j == -1){
+            int index = findCharIndex(encrypted.charAt(i));
+            if(index >= 0 && index - rotFactor >= 0){
+                decryptedMessage += ALPHABETH[index - rotFactor];
+            }else if(index >= 0 && index - rotFactor < 0) {
+                decryptedMessage += ALPHABETH[index-rotFactor + ALPHABETH.length];
+            }else if(index == -1){
                 decryptedMessage += encrypted.charAt(i);
             }
         }return decryptedMessage;
