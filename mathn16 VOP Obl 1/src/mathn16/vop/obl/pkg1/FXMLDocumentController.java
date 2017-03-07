@@ -45,7 +45,7 @@ public class FXMLDocumentController implements Initializable {
     private RadioButton ceasarBtn;
 
     @FXML
-    private Spinner ceasarSpinner;
+    private Spinner<Integer> ceasarSpinner;
 
     @FXML
     private Button encryptButton;
