@@ -19,14 +19,14 @@ public class AtbashCipher extends AbstractCipher {
         String encryptedMessage = "";
         for(int i = 0; i < original.length(); i++){                         //Iterere hver char i strengen
             int j = findCharIndex(original.charAt(i));                      //Tager char ved det aktuelle index.
-            if(j > CipherInterface.ALPHABETH.length/2){
+            if(j > ALPHABETH.length/2){
                 int l = 0;
-                for(int k = CipherInterface.ALPHABETH.length/2; k < j; k++){
+                for(int k = ALPHABETH.length/2; k < j; k++){
                     l++;
                 }
-                encryptedMessage += CipherInterface.ALPHABETH[CipherInterface.ALPHABETH.length/2-l -1];
-            }else if(j >= 0 && j <= CipherInterface.ALPHABETH.length/2){
-                encryptedMessage += CipherInterface.ALPHABETH[CipherInterface.ALPHABETH.length - j -1];
+                encryptedMessage += ALPHABETH[ALPHABETH.length/2-l -1];
+            }else if(j >= 0 && j <= ALPHABETH.length/2){
+                encryptedMessage += ALPHABETH[ALPHABETH.length - j -1];
             }else{
                 encryptedMessage += original.charAt(i);
             }

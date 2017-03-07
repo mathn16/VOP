@@ -14,8 +14,8 @@ public abstract class AbstractCipher implements CipherInterface {
     
     protected int findCharIndex(char ch){
         int chIndex = -1;
-        for(int i = 0; i < CipherInterface.ALPHABETH.length; i++){
-            if(ch == CipherInterface.ALPHABETH[i]){
+        for(int i = 0; i < ALPHABETH.length; i++){
+            if(ch == ALPHABETH[i]){
                 chIndex = i;
             }
         }return chIndex;
