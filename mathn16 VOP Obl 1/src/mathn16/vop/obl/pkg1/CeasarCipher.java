@@ -27,7 +27,6 @@ public class CeasarCipher extends AbstractCipher{
         String encryptedMessage = "";
         for(int i = 0; i < original.length(); i++){
             int j = findCharIndex(original.charAt(i));
-            //System.out.println(j);          
             if(j >= 0 && j + rotFactor < ALPHABETH.length){
                 encryptedMessage += ALPHABETH[j + rotFactor];
             }else if(j >= 0 && j + rotFactor > ALPHABETH.length) {
