@@ -5,7 +5,6 @@
  */
 package mathn16.vop.obl.pkg1;
 
-import ancient_encryption.CipherInterface;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
