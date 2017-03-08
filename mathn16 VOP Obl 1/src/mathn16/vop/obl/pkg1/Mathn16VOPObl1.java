@@ -41,6 +41,7 @@ public class Mathn16VOPObl1 extends Application {
         String enc = cipher.encrypt(message);
         return enc;
     }
+    
     public String ceasarEncryptMode(int n, String message){
         CeasarCipher cipher = new CeasarCipher(n);
         String enc = cipher.encrypt(message);

@@ -17,7 +17,6 @@ public class RockScissorsPaper {
     private String player;
     private String computer;
     private boolean playing = true;
-    private int valg;
     
     public final static String[] HANDS = new String[]{"Sten","Saks","Papir"};
 
@@ -39,7 +38,7 @@ public class RockScissorsPaper {
         computer = HANDS[new Random().nextInt(3)];
         for(int i = 0; i<HANDS.length; i++){
             if(playerHand == HANDS[i]){
-                player = playerHand;
+                player = HANDS[i];
             }
         }
     }
@@ -76,22 +75,5 @@ public class RockScissorsPaper {
             }
         }
         return winner;
-    }
-    public static void main(String[] arg){
-        RockScissorsPaper rSP = new RockScissorsPaper();
-        Scanner input = new Scanner(System.in);
-        
-        while(rSP.playing == true){
-            System.out.println("[0]Sten, [1]Saks or [2]Papir ?");
-            rSP.valg = input.nextInt();
-            if(rSP.valg != 0 && rSP.valg != 1 && rSP.valg != 2){
-                rSP.playing = false;
-                System.out.println("Tak for spillet!");
-                break;
-            }else{
-                rSP.play(HANDS[rSP.valg]);
-                System.out.println(rSP.getWinner()+"\n\nDu valgte:\n" + rSP.getPlayer() +"\nComputeren valgte:\n" + rSP.getComputer());
-            }
-        }
     }
 }
